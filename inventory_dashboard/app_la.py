@@ -37,9 +37,11 @@ if not st.session_state.authenticated:
     st.stop()
 
 # --- App Title ---
-st.image(CLIENT_LOGO, use_column_width=False, width=150)
-st.title("Inventory Management Dashboard")
-
+CLIENT_LOGO = "/Users/aviluvchik/Python Projects/inventory_dashboard/uploaded_files/superpharm_logo.png"
+try:
+    st.image(CLIENT_LOGO, use_column_width=False, width=150)
+except Exception:
+    st.warning("Client logo not found or inaccessible.")
 # --- File Upload ---
 st.sidebar.header("Upload Inventory Data")
 uploaded_file = st.sidebar.file_uploader("Upload your Excel file", type=["xlsx"])
